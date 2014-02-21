@@ -56,11 +56,13 @@ li+li{
 	margin-top:20px;
 }
 .inhoudBlokje {
-  -webkit-animation: inhoudBlokje 1s;     
-  -webkit-animation-fill-mode: forwards; 
+  -webkit-animation: inhoudBlokje 2s;     
+  -webkit-animation-fill-mode: forwards;
+  left:-300px;
+  overflow: hidden; 
 }
  @-webkit-keyframes inhoudBlokje {
-   0%   { -webkit-transform: translateX(-300px); }  
+   0%   { -webkit-transform: translateX(-800px); }  
    30%   { -webkit-transform: translateX(5px);  }  
    60%   { -webkit-transform: translateX(10px); }  
    100%   { -webkit-transform: translateX(5px);}  
