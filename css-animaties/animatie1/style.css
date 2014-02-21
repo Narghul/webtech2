@@ -1,0 +1,31 @@
+#shape1{
+	background-color: red;
+}
+#shape2{
+	background-color: yellow;
+}
+#shape3{
+	background-color: blue;
+}
+.cirkel{
+	border-radius:60%;
+	position: absolute;
+	width:25px;
+	height: 25px;
+	transition: -webkit-transform 1s;
+
+
+}
+.moveBall1{
+	-webkit-transform: translateX(100px);
+}
+.moveBall2{
+		-webkit-transform: translateY(100px)
+
+
+}
+.moveBall3{
+		-webkit-transform: translateY(100px) translateX(100px) 
+
+
+}
