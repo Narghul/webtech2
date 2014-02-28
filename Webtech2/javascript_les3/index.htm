@@ -11,10 +11,14 @@
 		<h1>IMDo App</h1>
 
 		<ul>
+            <li class="prior-high">Clean my room</li>
+			<li class="prior-med" class="todo">Do some projects</li>
+			<li class="prior-low" class="todo">Clean my code</li>
 			<li id="todo-item1">Learn about GIT</li>
 			<li id="todo-item2" class="todo">Experiment with CSS animations</li>
 			<li id="todo-item3" class="todo">Become a Javascript ninja</li>
 		</ul>
+        <input type="button" id="mark" value="Mark all as done" />
 
 	</div><!-- end container -->
 
@@ -39,7 +43,16 @@ IMDelement.prototype.color = function (p_color) {
 
 }
 IMDelement.prototype.addClass = function (p_class) {
+    
+    if (this.isArray) {
+        for (var i = 0, l = this.element.length; i < l; i++) {
+    this.element[i].className = p_class;
+        }
+    } else {
     this.element.className = p_class;
+    }
+
+    return this.element;
 
 }
 IMDelement.prototype.click = function (action) {
@@ -48,7 +61,7 @@ IMDelement.prototype.click = function (action) {
             this.element[i].addEventListener('click', action);
         }
     } else {
-        this.element.addEventListener('click', action);
+       this.element.addEventListener('click', action);
     }
 
 
@@ -91,11 +104,15 @@ $("li").click(function (){
 });
 
 
-
+$("#mark").click(function(){
+   $("li").addClass("done"); 
+});
 
 // EIGEN CODE
 $("#todo-item1").color("yellow");
 //$("li").color("red");
+        
+        $("li#todo-item1").addClass("done");
 		
 
 	</script>
