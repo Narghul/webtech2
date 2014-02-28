@@ -7,7 +7,7 @@ body{
 .done{
     text-decoration: 
         line-through;
-    background-color: #000;
+    background-color: #00ff00;
 }
 li{
     list-style-type: none;
