@@ -1,0 +1,33 @@
+<html>
+<head>
+	<title>CSS3 Animaties</title>
+	<link href="style.css" rel="stylesheet" type="text/css">
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+    $( document ).ready(function() {
+        console.log( "document loaded" );
+        $(".cirkel").click(addClasses);
+        
+
+    });
+function addClasses(){
+	$("#shape1").addClass("moveBall1");
+    $("#shape2").addClass("moveBall2");
+    $("#shape3").addClass("moveBall3");
+       console.log("classes added");
+
+
+}
+
+ 
+   
+    </script>
+
+</head>
+<body>
+<div id="shape1" class="cirkel"></div>
+<div id="shape2" class="cirkel"></div>
+<div id="shape3" class="cirkel"></div>
+
+</body>
+</html>
