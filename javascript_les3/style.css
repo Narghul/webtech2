@@ -1,0 +1,33 @@
+body{
+    font-family: sans-serif;
+    background-color: #232324;
+    color:#fff;
+}
+
+.done{
+    text-decoration: 
+        line-through;
+    background-color: #000;
+}
+li{
+    list-style-type: none;
+    background-color:#0000ff;
+padding: 10px;
+    width:300px;
+}
+.prior-high{
+        background-color:#ff0000;
+
+    
+}
+.prior-med{
+        background-color:#AB0048;
+
+    
+}
+.prior-low{
+    background-color: #42004F;
+}
+.todo{
+    background-color: #00CEE0;
+}
