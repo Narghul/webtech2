@@ -9,6 +9,8 @@ $(function() {
 });
 
 var Weather = function(){
+      var skycons = new Skycons({"color": "white"});
+
 
 
 
@@ -219,41 +221,47 @@ voorspelling[i].temperatureMax +'</div>');
 function getIcon(cond){
     switch(cond){
      case "clear-day":
-            $( "img" ).attr("src", "images/clear-day.png");
-            break;
+skycons.add(document.getElementById("links"), Skycons.CLEAR_DAY);
+break;
     case "clear-night":
-            $( "img" ).attr("src", "images/clear-night.png");
-            break;
+skycons.add(document.getElementById("links"), Skycons.CLEAR_NIGHT);
+break;
     case "rain":
-    $( "img" ).attr("src", "images/rain.png");
-    break;
+skycons.add(document.getElementById("links"), Skycons.RAIN);
+break;
     case "snow":
-    $( "img" ).attr("src", "images/snow.png");
-    break;
+skycons.add(document.getElementById("links"), Skycons.SNOW);
+break;
     case "sleet":
-    $( "img" ).attr("src", "images/sleet.png");
-    break;
+skycons.add(document.getElementById("links"), Skycons.SLEET);
+break;
     case "wind":
-    $( "img" ).attr("src", "images/wind.png");
-    break;
+skycons.add(document.getElementById("links"), Skycons.WIND);
+break;
     case "fog":
-    $( "img" ).attr("src", "images/fog.png");
-    break;
+skycons.add(document.getElementById("links"), Skycons.FOG);
+break;
     case "cloudy":
-    $( "img" ).attr("src", "images/cloudy.png");
-    break;
+    skycons.add(document.getElementById("links"), Skycons.CLOUDY);
+      break;
     case "partly-cloudy-day":
-    $( "img" ).attr("src", "images/partly-cloudy-day.png");
+      skycons.add(document.getElementById("links"), Skycons.PARTLY_CLOUDY_DAY);
+            //skycons.add("icon1", Skycons.PARTLY_CLOUDY_DAY);
+
+    //$( "#links" ).css('background-image', 'url("images/partly-cloudy-day.png")').css("width", "200px").css("height", "200px");
     break;
     case "partly-cloudy-night":
-    $( "img" ).attr("src", "images/partly-cloudy-night.png");
+    skycons.add(document.getElementById("links"), Skycons.PARTLY_CLOUDY_NIGHT);
+
     break;
             default:
-                $( "img" ).attr("src", "images/clear-day.png");
-
+skycons.add(document.getElementById("links"), Skycons.CLEAR_DAY);
+      break;
             break;
 
     }
+          skycons.play();
+
 }
 function getColor(bg){
     switch(bg){
