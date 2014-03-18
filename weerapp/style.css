@@ -1,6 +1,5 @@
 html, button, input, select, textarea,
-.pure-g [class *= "pure-u"],
-.pure-g-r [class *= "pure-u"] {
+.row {
     /* Set your content font stack here: */
 font-family: 'Roboto', sans-serif;
 }
@@ -12,14 +11,14 @@ body{
     color:#fff;
     font-size:16px;
 }
-.pure-g{
+.row{
     margin-left:auto;
     margin-right:auto;
     width:70%;
 font-family: 'Roboto', sans-serif;
 
 }
-.pure-g{
+.row{
     padding-left:5px;
 }
 
@@ -30,24 +29,21 @@ font-family: 'Roboto', sans-serif;
 #currentTemp{
     font-weight: bold;
 }
-.dag{
-    float:left;
-}
-.dag+.dag{
-padding:10px;}
-#dag0{
+
+
+#f1{
         background-color:#e5cc5c;
 
 }
-#dag1{
+#f2{
         background-color:#33C2C4;
 
 }
-#dag2{
+#f3{
         background-color:#195FA5;
 
 }
-#dag3{
+#f4{
     background-color:#27A2C1;
 }
 .dummy{
