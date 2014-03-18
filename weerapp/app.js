@@ -8,6 +8,10 @@ $(function() {
     console.log("FastClick werkt");
 });
 
+var Weather = function(){
+
+
+
 
     var huidigePositie = '';
     var jsonResponse = '';
@@ -289,6 +293,9 @@ function getColor(bg){
             break;
         }
 }
+}
+
+var weer = new Weather();
 
 
 
