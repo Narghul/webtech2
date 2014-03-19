@@ -1,3 +1,15 @@
+<?php
+
+if (isset($_POST["mail"]) && !empty($_POST["mail"])) {
+
+    $f = fopen('mails.txt', 'a');
+    fwrite($f, $_POST["mail"] . "\r\n");
+    fclose($f);
+
+}else{
+
+}
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -43,8 +55,8 @@
                            <div class="row">
                            <div class="col-md-12 trager">
 
-                           <form action="#" id="form1">
-  <input type="text" name="fname" placeholder="je@email.com"><input type="submit" value="Submit">
+                           <form action="#" id="form1" method="post">
+  <input type="text" name="mail" placeholder="je@email.com"><input type="submit" value="Submit">
 </form>
 </div>
 </div>
