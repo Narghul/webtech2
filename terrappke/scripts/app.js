@@ -158,14 +158,7 @@ var formattedTime = hours + ':' + minutes + ':' + seconds;
     Weather.prototype.getColor(conditie);
     Weather.prototype.getMotivation(conditie);
     $("#currentTemp").append(Math.round(Weather.prototype.jsonResponse.currently.temperature) + '°C');
-            $("#beschrijving").append('<br /> ' +Weather.prototype.jsonResponse.currently.summary).append('<br />').append('<br />').append(Weather.prototype.jsonResponse.currently.windSpeed + ' km/h').append("<br />" + formattedTime + "<br />" + Weather.prototype.jsonResponse.hourly.summary);
 
-    for(var i = 1; i<4; i++){
-        $("#f"+i).append(Weather.prototype.getDagFromNumber(Weather.prototype.unixToHuman(voorspelling[i].time).getDay()) + ' ' + voorspellingDatum[i].getDate() + '/'+ voorspellingDatum[i].getMonth() +'<br />' +
-voorspelling[i].temperatureMax +'</div>');
-
-    }
-    $("#forecast").append('<div class="dummy"></div>');
 
 }
 Weather.prototype.getIcon = function(cond){
