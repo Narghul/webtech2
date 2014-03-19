@@ -48,6 +48,33 @@ Weather.prototype.getDagFromNumber = function(dag){
             break;
 }
 }
+
+Weather.prototype.doLocation = function(){
+
+    var request = $.ajax({
+        url: 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + Weather.prototype.huidigePositie.coords.latitude + ',' + Weather.prototype.huidigePositie.coords.longitude + '&sensor=true',
+        //api key = &key=AIzaSyC39ss-ApCy2Pt6_VuXgjpcDOe_NW9rGJM
+        type: 'GET',
+        dataType: 'json',
+        //data: {param1: 'value1'},
+    })
+    .done(function() {
+        console.log("[GMaps]success");
+        Weather.prototype.locatieResponse = request.responseJSON;
+        localStorage.setItem("locatie", JSON.stringify(Weather.prototype.locatieResponse));
+
+
+    })
+    .fail(function() {
+        console.log("error");
+    })
+    .always(function() {
+        console.log("complete");
+
+
+    });
+
+}
 Weather.prototype.doAjax = function(huidigePositie){
     console.log("doAjax "+Weather.prototype.huidigePositie);
 
@@ -97,11 +124,12 @@ Weather.prototype.getLocation = function(){
         console.log(Weather.prototype.huidigePositie);
       if(localStorage.jsonitem == null){
         Weather.prototype.doAjax(Weather.prototype.huidigePositie);
+        Weather.prototype.doLocation();
       }else{
         console.log(Weather.prototype.jsonResponse);
         Weather.prototype.jsonResponse = JSON.parse(localStorage.getItem("jsonitem"));
                   console.log("weer is gecached");
-          this.locatieResponse = localStorage.getItem("locatie");
+          Weather.prototype.locatieResponse = localStorage.getItem("locatie");
                         var nu = new Date();
           var cachedTijd = new Date(Weather.prototype.jsonResponse.currently.time*1000);
          // console.log(cachedTijd + "cached tijd");
@@ -119,6 +147,7 @@ Weather.prototype.getLocation = function(){
               //console.log(nu);
               //console.log(JSON.parse(jsonResponse).currently.time);
              Weather.prototype.doAjax(Weather.prototype.huidigePositie);
+             Weather.prototype.doLocation();
           }else{
               console.log("Geen weerupdate nodig");
             Weather.prototype.gebruikResponse(Weather.prototype.jsonResponse);
@@ -131,7 +160,7 @@ Weather.prototype.getLocation = function(){
       }
 }
 Weather.prototype.gebruikResponse = function(){
-    console.log(Weather.prototype.jsonResponse.currently.time);
+   // console.log(Weather.prototype.jsonResponse.currently.time);
     var date = new Date(Weather.prototype.jsonResponse.currently.time*1000);
 // hours part from the timestamp
 var hours = date.getHours();
@@ -154,10 +183,10 @@ var formattedTime = hours + ':' + minutes + ':' + seconds;
 
     }else{
 
-    locatieResponse = JSON.parse(localStorage.getItem("locatie"));
+    Weather.prototype.locatieResponse = JSON.parse(localStorage.getItem("locatie"));
     //console.log(locatieResponse["results"][4]);
 
-    $("#locatie").append(locatieResponse["results"][4].formatted_address);
+    $("#locatie").append(Weather.prototype.locatieResponse["results"][4].formatted_address);
     }
     var conditie = Weather.prototype.jsonResponse.currently.icon;
     //mogelijke condities van forecast.io clear-day, clear-night, rain, snow, sleet, wind, fog, cloudy, partly-cloudy-day, or partly-cloudy-night
