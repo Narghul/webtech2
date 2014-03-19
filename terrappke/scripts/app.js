@@ -1,6 +1,7 @@
  jQuery(function(){
             console.log("jQuery loaded");
 
+
         });
 
 $(function() {
@@ -65,7 +66,6 @@ Weather.prototype.doAjax = function(huidigePositie){
         Weather.prototype.gebruikResponse();
         localStorage.setItem("jsonitem", JSON.stringify(Weather.prototype.jsonResponse));
 
-
     })
     .fail(function() {
         console.log("error");
@@ -95,11 +95,11 @@ Weather.prototype.getLocation = function(){
 
       }
       
-        console.log(Weather.prototype.huidigePositie);
+        //console.log(Weather.prototype.huidigePositie);
       if(localStorage.jsonitem == null){
         Weather.prototype.doAjax(Weather.prototype.huidigePositie);
       }else{
-        console.log(Weather.prototype.jsonResponse);
+        //console.log(Weather.prototype.jsonResponse);
         Weather.prototype.jsonResponse = JSON.parse(localStorage.getItem("jsonitem"));
                   console.log("weer is gecached");
                         var nu = new Date();
