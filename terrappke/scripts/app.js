@@ -26,16 +26,13 @@ $(function() {
       if (navigator.geolocation)
         {
         navigator.geolocation.getCurrentPosition(showPosition, error);
+        console.log("logo");
         }
       else{this.x.innerHTML = "Geolocation is not supported by this browser.";}
       }
     function showPosition(position)
       {
-      //this.x.innerHTML = "Latitude: " + position.coords.latitude +
-      //"<br>Longitude: " + position.coords.longitude;
       huidigePositie = position;
-      //console.log("huidigePositie wordt positie" + huidigePositie);
-      //localstorage.setItem("pos", huidigePositie);
       if(localStorage.jsonitem == null){
               doAjax();
 
@@ -47,19 +44,13 @@ $(function() {
           var locatieResponse = localStorage.getItem("locatie");
                         var nu = new Date();
           var cachedTijd = new Date(JSON.parse(jsonResponse).currently.time*1000);
-         // console.log(cachedTijd + "cached tijd");
 
           var t1 = new Date(0, 0, 0, cachedTijd.getHours(), cachedTijd.getMinutes(), 0, 0);
           var t2 = new Date(0, 0, 0, nu.getHours(), nu.getMinutes(), 0, 0);
-var dif = t2.getTime() - t1.getTime();
+            var dif = t2.getTime() - t1.getTime();
 
-var Seconds_from_T1_to_T2 = dif / 1000;
-var Seconds_Between_Dates = Math.abs(Seconds_from_T1_to_T2);
-
-
-
-
-
+            var Seconds_from_T1_to_T2 = dif / 1000;
+            var Seconds_Between_Dates = Math.abs(Seconds_from_T1_to_T2);
 
           if( Seconds_Between_Dates >= 3600){
                 console.log("weer update nodig");
@@ -86,34 +77,8 @@ var Seconds_Between_Dates = Math.abs(Seconds_from_T1_to_T2);
       function error(){
         console.log("error met het vinden van locatie")
       }
-    getLocation();
-            function doLocation(){
+      getLocation();
 
-    var request = $.ajax({
-        url: 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + huidigePositie.coords.latitude + ',' + huidigePositie.coords.longitude + '&sensor=true',
-        //api key = &key=AIzaSyC39ss-ApCy2Pt6_VuXgjpcDOe_NW9rGJM
-        type: 'GET',
-        dataType: 'json',
-        global: 'false',
-        //data: {param1: 'value1'},
-    })
-    .done(function() {
-        console.log("[GMaps]success");
-        locatieResponse = request.responseJSON;
-        //console.log(locatieResponse);
-        localStorage.setItem("locatie", JSON.stringify(locatieResponse));
-
-
-    })
-    .fail(function() {
-        console.log("error");
-    })
-    .always(function() {
-        console.log("complete");
-
-
-    });
-            }
 function doAjax() {
 
     var jqxhr = $.ajax({
@@ -121,6 +86,7 @@ function doAjax() {
         //url: 'https://api.forecast.io/forecast/bd57f534e65a91f03c3d1f82735e435a/37.8267,-122.423',
 
         type: 'GET',
+        global: true,
         dataType: 'jsonp',
     })
 
@@ -134,7 +100,6 @@ function doAjax() {
             jsonResponse = jqxhr.responseJSON;
             gebruikResponse(jsonResponse);
             localStorage.setItem("jsonitem", JSON.stringify(jsonResponse));
-            NProgress.set(1.0);
 
 
         })
@@ -155,6 +120,7 @@ function doAjax() {
 
 
     }
+
 function getDagFromNumber(dag){
     switch(dag){
             case 1:
