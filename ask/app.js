@@ -13,9 +13,7 @@ var path = require('path');
 var faye = require('faye');
 var app = express();
 var bayeux = new faye.NodeAdapter({mount: '/'});
-var client = new faye.Client('http://localhost:3000');
 var browserlogger = require('browser-logger');
-var vragen = [];
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -40,11 +38,10 @@ app.get('/', routes.index);
 app.get('/users', user.list);
 app.get('/ask', ask.show);
 app.get('/allquestions', allquestions.showAllQuestions);
-client.subscribe('/question', ask.updateChat);
 app.post('/send', function(req,res){
-    vragen.push(req.body.vraag);
-    //res.send({questions: vragen});
-    allquestions.showAllQuestions(vragen);
+    //questions JSON
+    console.log(req.body);
+    
 });
 
 http.createServer(app).listen(app.get('port'), function(){
