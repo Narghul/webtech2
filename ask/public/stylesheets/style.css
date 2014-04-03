@@ -1,6 +1,6 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px Roboto, Helvetica, Arial, sans-serif;
 }
 
 a {
@@ -14,6 +14,23 @@ font-weight: bold;
 
 .question{
     padding:5px;
-    background-color:#00b7ff;
+    background-color:#1abc9c;
     color:#fff;
+}
+#askQ{
+    background-color:#2980b9;
+    border:none;
+    color:#fff;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left:10px;
+    padding-right:10px;
+    height:34px;
+    margin-left:30px;
+    font-weight: bold;
+}
+input[type="text"]{
+    padding:5px;
+    height:20px;
+    width:400px;
 }
