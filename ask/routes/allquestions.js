@@ -1,3 +1,3 @@
-exports.showAllQuestions = function(res,req){
+exports.show = function(req, res){
   res.render('allquestions');
 };

@@ -12,8 +12,7 @@ var http = require('http');
 var path = require('path');
 var faye = require('faye');
 var app = express();
-var bayeux = new faye.NodeAdapter({mount: '/'});
-var browserlogger = require('browser-logger');
+var bayeux = new faye.NodeAdapter({mount: '/faye'});
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -26,7 +25,6 @@ app.use(express.urlencoded());
 app.use(express.methodOverride());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(browserlogger);
 
 
 // development only
@@ -37,14 +35,20 @@ if ('development' == app.get('env')) {
 app.get('/', routes.index);
 app.get('/users', user.list);
 app.get('/ask', ask.show);
-app.get('/allquestions', allquestions.showAllQuestions);
-app.post('/send', function(req,res){
-    //questions JSON
-    console.log(req.body);
-    
-});
+app.get('/allquestions', allquestions.show);
 
-http.createServer(app).listen(app.get('port'), function(){
-  console.log('Express server listening on port ' + app.get('port'));
-});
-bayeux.attach(app);
+
+var server = http.createServer(app);
+server.listen(app.get('port'));
+bayeux.attach(server);
+
+
+//Test to see if publishing questions works:
+//bayeux.on('publish', function(clientId, channel, data) {
+  // event listener logic
+    //console.log(clientId + " " + channel + " " + data.question);
+//})
+bayeux.on('subscribe', function(clientId, channel, data) {
+  // event listener logic
+    console.log(clientId + " " + channel + " " + data.question);
+})

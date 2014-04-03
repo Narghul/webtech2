@@ -11,7 +11,4 @@
     "faye": "*",
     "connect": "2.x"
   },
-  "devDependencies": {
-    "browser-logger": "1.x"
-  }
 }
