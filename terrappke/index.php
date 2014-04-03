@@ -23,7 +23,7 @@ if (isset($_POST["mail"]) && !empty($_POST["mail"])) {
         <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,700' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
                 <link rel="stylesheet" href="style.css">
-                <link rel="stylesheet" href="scripts/nprogress.css">
+                <link rel="stylesheet" href="scripts/pace.css">
 
 
 
@@ -69,7 +69,7 @@ if (isset($_POST["mail"]) && !empty($_POST["mail"])) {
     <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script type='application/javascript' src='scripts/fastclick.js'></script>
     <script src="scripts/skycons.js"></script>
-    <script src="scripts/nprogress.js"></script>
+    <script src="scripts/pace.min.js"></script>
     <script src="scripts/app.js"></script>
 
 
