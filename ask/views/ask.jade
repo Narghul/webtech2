@@ -1,0 +1,6 @@
+extends layout
+
+block content
+ form(action="/send" id="question" method="post")
+    input(type="text" name="vraag")
+    input(type="submit" value="verzenden")
