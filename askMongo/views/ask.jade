@@ -1,0 +1,9 @@
+extends layout
+
+block content
+ h1 Ask your questions,
+ input(type="text" name="question-txt" placeholder="Enter your question" autofocus="autofocus")
+ input(type="submit" name="askQ" id="askQ")
+
+block append scripts
+ script(src='http://localhost:3000/js/ask-client.js')
