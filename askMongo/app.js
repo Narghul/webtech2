@@ -41,12 +41,6 @@ app.get('/users', user.list);
 app.get('/ask', ask.show);
 app.get('/allquestions', allquestions.show);
 
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function callback () {
-  // yay!
-});
-
 var questionSchema = new Schema({
   question:  String,
   name: String,
@@ -57,10 +51,11 @@ var Questions = mongoose.model('Questions', questionSchema);
 
 
 
+
 var server = http.createServer(app);
 server.listen(app.get('port'));
 bayeux.attach(server);
-
+//mongoose.connect("mongodb://localhost/ask");
 
 //Test to see if publishing questions works:
 //bayeux.on('publish', function(clientId, channel, data) {

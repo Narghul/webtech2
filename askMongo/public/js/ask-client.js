@@ -4,7 +4,15 @@ var client = new Faye.Client("http://localhost:3000/faye");
 console.log("Client connected");
 
 
-$("input[type=submit]").click(publishQuestion);
+$("input[type=submit]").click(function(){
+    if($("input[name=question-txt]").val()==""){
+        $("#error").empty();
+        $("#error").append("Please fill in the question field.");
+    }else{
+    $("#error").empty();
+    publishQuestion();
+}
+});
 var name = window.prompt("Enter your name");
 
 $("h1").append(" " + name + "!");
