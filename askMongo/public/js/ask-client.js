@@ -13,7 +13,9 @@ $("input[type=submit]").click(function(){
     publishQuestion();
 }
 });
-var name = window.prompt("Enter your name");
+if(name===''){
+    var name = window.prompt("Enter your name");
+}
 
 $("h1").append(" " + name + "!");
 

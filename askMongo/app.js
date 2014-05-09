@@ -29,7 +29,13 @@ app.use(express.methodOverride());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
+var questionSchema = new Schema({
+  name:  String,
+  question: String,
+  votes:   Number,
+});
 
+var Questions = mongoose.model('Questions', questionSchema);
 
 // development only
 if ('development' == app.get('env')) {
@@ -40,22 +46,20 @@ app.get('/', routes.index);
 app.get('/users', user.list);
 app.get('/ask', ask.show);
 app.get('/allquestions', allquestions.show);
-
-var questionSchema = new Schema({
-  question:  String,
-  name: String,
-  votes:   Number,
-});
-
-var Questions = mongoose.model('Questions', questionSchema);
+app.post('/ask', ask.question);
 
 
+
+Questions.findOne({ 'name': 'Jacky' }, function (err, question) {
+  if (err) return handleError(err);
+  console.log(question.name, question.votes, question.question) // Space Ghost is a talk show host.
+})
 
 
 var server = http.createServer(app);
 server.listen(app.get('port'));
 bayeux.attach(server);
-//mongoose.connect("mongodb://localhost/ask");
+mongoose.connect("mongodb://localhost/ask");
 
 //Test to see if publishing questions works:
 //bayeux.on('publish', function(clientId, channel, data) {

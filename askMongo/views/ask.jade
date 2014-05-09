@@ -2,8 +2,9 @@ extends layout
 
 block content
  h1 Ask your questions,
- input(type="text" name="question-txt" placeholder="Enter your question" autofocus="autofocus" required)
- input(type="submit" name="askQ" id="askQ")
+ form(method='post')
+  input(type="text" name="question-txt" placeholder="Enter your question" autofocus="autofocus")
+  input(type="submit" name="askQ" id="askQ")
  p(id="error")
 
 block append scripts
