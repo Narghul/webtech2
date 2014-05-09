@@ -6,7 +6,7 @@ exports.show = function(req, res){
 if (err) return handleError(err);
   //console.log(question);
   for(var i = 0; i<question.length; i++){
-  console.log(question[i]);
+  console.log(question[i] + " vraag " + i);
   res.render('allquestions', {naam: question[i].name, question: question[i].question, votes: question[i].votes});
 
   }
