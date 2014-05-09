@@ -15,6 +15,7 @@ var app = express();
 var bayeux = new faye.NodeAdapter({mount: '/faye'});
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var db = require('./models/db.js');
 
 
 // all environments
@@ -29,13 +30,7 @@ app.use(express.methodOverride());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
-var questionSchema = new Schema({
-  name:  String,
-  question: String,
-  votes:   Number,
-});
 
-var Questions = mongoose.model('Questions', questionSchema);
 
 // development only
 if ('development' == app.get('env')) {
@@ -52,7 +47,7 @@ app.post('/ask', ask.question);
 
 Questions.findOne({ 'name': 'Jacky' }, function (err, question) {
   if (err) return handleError(err);
-  console.log(question.name, question.votes, question.question) // Space Ghost is a talk show host.
+  //console.log(question.name, question.votes, question.question)
 })
 
 
@@ -60,6 +55,11 @@ var server = http.createServer(app);
 server.listen(app.get('port'));
 bayeux.attach(server);
 mongoose.connect("mongodb://localhost/ask");
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function callback () {
+  console.log('[MONGODB] Connection successful');
+});
 
 //Test to see if publishing questions works:
 //bayeux.on('publish', function(clientId, channel, data) {

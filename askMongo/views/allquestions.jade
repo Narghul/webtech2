@@ -2,6 +2,7 @@ extends layout
 
 block content
  div#questions
+    #{name} #{question} #{votes}
 
 block append scripts
  script(src='http://localhost:3000/js/allquestions.js')
