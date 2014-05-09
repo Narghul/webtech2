@@ -23,6 +23,7 @@ function publishQuestion() {
     console.log("clicked");
     var questionField = $("input[name=question-txt]").val();
     var q= new Question(0, questionField, name);
+    $("input[type=hidden").val(name);
     $("input[name=question-txt]").val("");
     console.log(q);
     client.publish("/question", q);

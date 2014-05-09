@@ -1,11 +1,15 @@
 var db = require('../models/db.js');
 
 exports.show = function(req, res){
-  Questions.findOne({ 'name': 'Jacky' }, function (err, question) {
+  Questions.find(function (err, question) {
 
 if (err) return handleError(err);
-  console.log(question.name, question.votes, question.question)
-  res.render('allquestions', {name: question.name, question: question.question, votes: question.votes});
+  //console.log(question);
+  for(var i = 0; i<question.length; i++){
+  console.log(question[i]);
+  res.render('allquestions', {naam: question[i].name, question: question[i].question, votes: question[i].votes});
+
+  }
 
 })
 
