@@ -2,8 +2,9 @@ extends layout
 
 block content
  div#questions
-  - for (var i=0; i<3; i++)
-    #{naam} #{question} #{votes} #{naam}
+    ul
+     each val in questions
+      li #{val.name} #{val.question} #{val.votes}
 
 block append scripts
  script(src='http://localhost:3000/js/allquestions.js')
