@@ -3,6 +3,7 @@ var Schema = mongoose.Schema,
 ObjectId = Schema.ObjectId;
 
 var questionSchema = new Schema({
+  id: ObjectId,
   name:  String,
   question: String,
   votes:   Number,

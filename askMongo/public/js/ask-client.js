@@ -4,16 +4,7 @@ var client = new Faye.Client("http://localhost:3000/faye");
 console.log("Client connected");
 
 
-$("input[type=submit]").click(function(){
-    if($("input[name=question-txt]").val()==""){
-        $("#error").empty();
-        $("#error").append("Please fill in the question field.");
-    }else{
-    $("#error").empty();
-    //publishQuestion();
 
-}
-});
 if(name===''){
     var name = window.prompt("Enter your name");
 }
@@ -21,7 +12,13 @@ if(name===''){
 $("h1").append(" " + name + "!");
 
 $("#vraag").submit(function(event){
+    if($("input[name=questiontxt]").val()===""){
+        $("#error").empty();
+        $("#error").append("Please fill in the question field.");
+    }else{
+    $("#error").empty();
     publishQuestion();
+}
 
 
 });

@@ -41,7 +41,7 @@ app.get('/', routes.index);
 app.get('/users', user.list);
 app.get('/ask', ask.show);
 app.get('/allquestions', allquestions.show);
-app.get('/allquestions', allquestions.updateQuestions);
+app.get('/updatequestions', allquestions.updateQuestions);
 app.post('/ask', ask.question);
 
 

@@ -4,7 +4,7 @@ block content
  div#questions
     ul
      each val in questions
-      li <b>#{val.name}</b> </br> #{val.question} <a href="addVote">#{val.votes}</a>
+      li <b>#{val.name}</b> </br> #{val.question} <a href="addVote" class="votes">#{val.votes}</a>
 
 block append scripts
  script(src='http://localhost:3000/js/allquestions.js')
