@@ -12,10 +12,12 @@ font-weight: bold;
 
 }
 
-.question{
+li{
     padding:5px;
     background-color:#1abc9c;
     color:#fff;
+    margin-top:5px;
+
 }
 #askQ{
     background-color:#2980b9;

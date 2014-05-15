@@ -41,14 +41,15 @@ app.get('/', routes.index);
 app.get('/users', user.list);
 app.get('/ask', ask.show);
 app.get('/allquestions', allquestions.show);
+app.get('/allquestions', allquestions.updateQuestions);
 app.post('/ask', ask.question);
 
 
 
-Questions.findOne({ 'name': 'Jacky' }, function (err, question) {
+/*Questions.findOne({ 'name': 'Jacky' }, function (err, question) {
   if (err) return handleError(err);
   //console.log(question.name, question.votes, question.question)
-})
+})*/
 
 
 var server = http.createServer(app);

@@ -10,7 +10,8 @@ $("input[type=submit]").click(function(){
         $("#error").append("Please fill in the question field.");
     }else{
     $("#error").empty();
-    publishQuestion();
+    //publishQuestion();
+
 }
 });
 if(name===''){
@@ -19,9 +20,15 @@ if(name===''){
 
 $("h1").append(" " + name + "!");
 
+$("#vraag").submit(function(event){
+    publishQuestion();
+
+
+});
+
 function publishQuestion() {
     console.log("clicked");
-    var questionField = $("input[name=question-txt]").val();
+    var questionField = $("input[name=questiontxt]").val();
     var q= new Question(0, questionField, name);
     $("input[type=hidden").val(name);
     $("input[name=question-txt]").val("");

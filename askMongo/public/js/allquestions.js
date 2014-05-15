@@ -5,7 +5,7 @@ client.subscribe("/question", function(message) {
    var q=new Question(message.question, message.vote, message.naam);
     console.log(message);
     var l = questionList.length;
-    $("#questions").append("<p class='question' id='q" + l++ +"'>" + message.question+ " "+"<a href='#' class='votes' data-votes='" + message.vote +"'>" + message.vote +"</a></p>");
+    $("#questions ul").append("<li class='question' id='q" + l++ +"'><b>" + message.name + "</b><br />" + message.question+ " "+"<a href='addVote' class='votes' data-votes='" + message.vote +"'>" + message.vote +"</a></p>");
     var i = 1;
     $(".question").click(function(event){
 
@@ -24,13 +24,9 @@ client.subscribe("/question", function(message) {
         //console.log(currentVotes + " currentvotes");
         return false;
     });
-    $(".question").change(reOrderThem);
-    questionList.push(q);
+
     //console.log(questionList);
 });
-function reOrderThem(){
-    $(this).css("font-size","2em");
-}
 
 //todo
 //1. Make it responsive

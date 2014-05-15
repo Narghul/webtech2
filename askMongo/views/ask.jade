@@ -1,8 +1,9 @@
 extends layout
 
 block content
+
  h1 Ask your questions,
- form(method='post')
+ form(method='post' id='vraag')
   input(type="text" name="questiontxt" placeholder="Enter your question" autofocus="autofocus")
   input(type="submit" name="askQ" id="askQ")
   input(type="hidden", name="username",value= '')

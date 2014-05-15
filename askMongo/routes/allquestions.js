@@ -1,6 +1,8 @@
 var db = require('../models/db.js');
 
-exports.show = function(req, res){
+
+
+exports.show = function(req, res, next){
   Questions.find(function (err, question) {
 
 if (err) return handleError(err);
@@ -11,8 +13,19 @@ if (err) return handleError(err);
 
   }*/
   res.render('allquestions', {questions: question});
+  console.log("Questions opgevraagd");
 
 
 })
+
+
+
+};
+
+exports.updateQuestions = function(req, res){
+
+    console.log(req.body);
+
+
 
 };
