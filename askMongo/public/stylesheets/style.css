@@ -14,6 +14,20 @@ li a{
 #questions{
     background-color:#fff;
 }
+.vote{
+    display:inline;
+    float:right;
+
+}
+.dummy{
+    clear:both;
+}
+
+.votebtn{
+    background-color:#1abc9c;
+    border: 0px;
+    padding:5px;
+}
 
 li{
     padding:5px;

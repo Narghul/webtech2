@@ -25,6 +25,7 @@ app.set('view engine', 'jade');
 app.use(express.favicon());
 app.use(express.logger('dev'));
 app.use(express.json());
+app.use(express.bodyParser());
 app.use(express.urlencoded());
 app.use(express.methodOverride());
 app.use(app.router);
@@ -43,6 +44,7 @@ app.get('/ask', ask.show);
 app.get('/allquestions', allquestions.show);
 app.get('/updatequestions', allquestions.updateQuestions);
 app.post('/ask', ask.question);
+app.post('/allquestions', allquestions.addVote)
 
 
 

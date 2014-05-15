@@ -10,7 +10,7 @@ client.subscribe("/question", function(message) {
         //$("body").empty();
         //$("body").append(data);
         $('#questions ul').append($(data).find('li').last());
-        console.log($(data).find('li').last());
+        //console.log($(data).find('li').last());
         $("li").click(function(){
         unbindAndClick($(this));
         });

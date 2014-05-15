@@ -16,7 +16,7 @@ if (err) return handleError(err);
   console.log("Questions opgevraagd");
 
 
-})
+}).sort({'votes': -1})
 
 
 
@@ -37,8 +37,40 @@ if (err) return handleError(err);
   console.log("Update opgevraagd");
 
 
-})
+}).sort({'votes': -1})
 
 
 
 };
+
+exports.addVote = function(req, res){
+    console.log(req.body);
+    Questions.findOne({ '_id': req.body.id  },(function (err, question) {
+
+if (err){
+  console.log(err);
+}
+  //console.log(question);
+  /*for(var i = 0; i<question.length; i++){
+  console.log(question[i].name + " naam " + i);
+  res.render('allquestions', {naam: question[i].name, question: question[i].question, votes: question[i].votes});
+
+  }*/
+  //console.log(question.votes);
+  //res.render('allquestions', {questions: question});
+  console.log("Update opgevraagd");
+  question.votes++;
+  question.save(function (err, vraag) {
+    if (err) return console.error(err);
+    });
+  console.log(question.votes);
+
+
+
+})
+
+    )
+          module.exports.updateQuestions(req, res);
+
+  };
+
