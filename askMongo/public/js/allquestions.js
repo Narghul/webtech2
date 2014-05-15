@@ -19,6 +19,31 @@ client.subscribe("/question", function(message) {
     //$("#questions ul").append("<li><b>" + message.name + "</b><br />" + message.question+ " "+"<a href='updateQuestions' class='votes'>" + message.vote +"</a></p>");
 
 });
+client.subscribe("/vote", function(message){
+     $.get("/updatequestions", function(data){
+        //$("body").empty();
+        //$("body").append(data);
+        console.log("vote seen");
+        $('#questions ul').append($(data).find('li'));
+        //console.log($(data).find('li').last());
+        $("li").click(function(){
+        unbindAndClick($(this));
+        });
+
+    });
+          //location.reload();
+
+})
+
+
+$(".vote").submit(function(){
+    client.publish("/vote", $(this));
+    })
+
+/*$("input[type=submit]").click(function(event){
+    $(this).css("display", "none");
+})*/
+
 $("li").click(function(){
     unbindAndClick($(this));
 });

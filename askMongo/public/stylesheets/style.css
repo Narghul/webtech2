@@ -23,10 +23,17 @@ li a{
     clear:both;
 }
 
-.votebtn{
-    background-color:#1abc9c;
+.votebtn, .deletebtn{
     border: 0px;
     padding:5px;
+}
+.votebtn{
+    background-color:#1abc9c;
+
+}
+.deletebtn{
+    background-color:#c0392b;
+
 }
 
 li{

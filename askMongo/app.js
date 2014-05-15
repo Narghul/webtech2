@@ -8,6 +8,7 @@ var routes = require('./routes');
 var user = require('./routes/user');
 var ask = require('./routes/ask');
 var allquestions = require('./routes/allquestions');
+var moderate = require('./routes/moderate');
 var http = require('http');
 var path = require('path');
 var faye = require('faye');
@@ -43,8 +44,12 @@ app.get('/users', user.list);
 app.get('/ask', ask.show);
 app.get('/allquestions', allquestions.show);
 app.get('/updatequestions', allquestions.updateQuestions);
+app.get('/moderate', moderate.show);
 app.post('/ask', ask.question);
-app.post('/allquestions', allquestions.addVote)
+app.post('/allquestions', allquestions.addVote);
+app.post('/addVote', allquestions.addVote);
+app.post('/moderate', moderate.delete);
+
 
 
 
