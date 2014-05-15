@@ -34,6 +34,19 @@ client.subscribe("/vote", function(message){
           //location.reload();
 
 })
+client.subscribe("/delete", function(message) {
+    console.log(message);
+    $.get("/updatequestions", function(data){
+        //$("body").empty();
+        //$("body").append(data);
+        $('#questions ul').append($(data).find('li'));
+        //console.log($(data).find('li').last());
+        console.log("delete gezien!!");
+
+    });
+          //location.reload();
+
+})
 
 
 $(".vote").submit(function(){

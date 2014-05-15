@@ -7,4 +7,4 @@ block content
       li <b>#{val.name}</b> </br> #{val.question} <form method="post" class="delete"><input type="hidden" name="id" value= '#{val._id}' /><b class="votes">#{val.votes}</b> <input type="submit" name="delete" class="deletebtn" value="delete" /></form><div class="dummy"></div>
 
 block append scripts
- script(src='http://localhost:3000/js/allquestions.js')
+ script(src='http://localhost:3000/js/moderate.js')

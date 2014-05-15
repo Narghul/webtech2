@@ -28,7 +28,7 @@ exports.updateQuestions = function(req, res){
 
     Questions.find(function (err, question) {
 
-if (err) return handleError(err);
+if (err) return console.log(err);
   //console.log(question);
   /*for(var i = 0; i<question.length; i++){
   console.log(question[i].name + " naam " + i);
