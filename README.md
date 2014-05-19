@@ -26,7 +26,7 @@ Working with JS prototypes
 ###Weather app
 
 We had to make a weather app in JS. I worked with the Forecast.io API to fetch weather information and I used Google Maps API to fetch the location. For some reason the Forecast api doesn't store the location so I used Google Maps for that.
-I also used Fastclick(to remove the 300ms delay for touch events), PACE progress bars to show that the app is loading and Skycons as the weather icons. Bootstrap is used to make it responsive.
+I also used Fastclick(to remove the 300ms delay for touch events), PACE progress bars to show that the app is loading and Skycons as the weather icons. Bootstrap is used to make it responsive. The background also changes depending on the weather forecast.
 
 <i>What have I learned?</i> <br />
 Working with JS prototypes in a real life project
@@ -34,3 +34,13 @@ Using API's with AJAX calls
 Working with other JS libraries/scripts
 
 Todo: Minify CSS
+
+###Terrappke app
+
+A bit similar to the weather app but in this case we don't see the actual forecast. Instead it shows a message about wether or not the weather is good enough to relax and have a drink at the Creativity Gym.
+
+Todo: Minify CSS
+
+###IMD-Wall app (askMongo)
+
+We had to create an app using NodeJS where it would be possible to ask questions during an event to the speaker at the event. We used Websockets to make it realtime, I used Faye for that. We worked with the Express framework which also includes Jade. We used MongoDB to store the questions in the database.
