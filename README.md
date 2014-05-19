@@ -43,4 +43,14 @@ Todo: Minify CSS
 
 ###IMD-Wall app (askMongo)
 
-We had to create an app using NodeJS where it would be possible to ask questions during an event to the speaker at the event. We used Websockets to make it realtime, I used Faye for that. We worked with the Express framework which also includes Jade. We used MongoDB to store the questions in the database.
+We had to create an app using NodeJS where it would be possible to ask questions during an event to the speaker at the event. The speaker would then be able to moderate and delete questions. <br />
+We used Websockets to make it realtime, I used Faye for that. We worked with the Express framework which also includes Jade for templates. We used MongoDB to store the questions in the database and I connected to my DB with Mongoose. I also used Gulp to minify any CSS and to concat the CSS.
+
+<i>What have I learned?</i> <br />
+Creating realtime NodeJS apps
+Working with the Express framework
+Using Websockets in JS (I have used them in Flex with a Java server in the past)
+Working with MongoDB
+Using a task runner such as Gulp
+Understanding how Express, Gulp and Mongoose work
+
